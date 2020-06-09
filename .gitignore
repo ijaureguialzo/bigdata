@@ -79,3 +79,7 @@ ficheros/nuevo.txt
 ficheros/.nuevo.txt.crc
 
 .idea/
+
+ficheros/GlobalLandTemperaturesByCity.csv
+
+ficheros/salida/
