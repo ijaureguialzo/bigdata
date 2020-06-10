@@ -83,3 +83,5 @@ ficheros/.nuevo.txt.crc
 ficheros/GlobalLandTemperaturesByCity.csv
 
 ficheros/salida/
+
+EjemploMapReduce/src/main/java/META-INF/
