@@ -19,6 +19,9 @@ void callback(char* topic, byte* payload, unsigned int length)
 {
 }
 
+// Identificador del logger
+String logger_id = "kit-02";
+
 void setup() {
 
     // Apagar el LED principal
@@ -32,7 +35,7 @@ void setup() {
     dht.begin();
 
     // Conectar al servidor MQTT
-    client.connect("kit-02");
+    client.connect(logger_id);
 }
 
 void loop() {
@@ -44,8 +47,9 @@ void loop() {
     // Si estamos conectados al MQTT, enviar los datos
     if (client.isConnected())
     {
-        // Formato: TOPIC JSON -> mediciones { "temperatura": 23.200001, "humedad": 48.000000 }
+        // Formato: TOPIC JSON -> mediciones { "particle": "kit-02", "temperatura": 23.000000, "humedad": 48.500000 }
         client.publish("mediciones", "{ "  
+            "\"particle\": \"" + logger_id + "\", " 
             "\"temperatura\": " + String(temperature) + ", " 
             "\"humedad\": "  + String(humidity) + " "
         "}");
